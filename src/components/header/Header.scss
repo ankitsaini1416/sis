@@ -1,0 +1,289 @@
+/*.drawer-inner {
+  box-shadow: var(--common-elevation);
+  height: auto;
+}*/
+.drawer-sidebar {
+  height: 100%;
+  .brand-logo {
+    max-width: 100%;
+    display: block;
+  }
+  .brand-name {
+    cursor: pointer;
+  }
+  .drawer-arrow {
+    body[data-theme="eden"] & {
+      color: var(--color-blue-grey-2);
+    }
+    body[data-theme="charcoal"] &, body[data-theme="cornflower"] & {
+      color: var(--color-blue-grey-8);
+    }
+  }
+  .drawer-heading {
+    font-size: 0.938rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    color: #f3f5ff;
+    padding: 8px 16px;
+    display: flex;
+    .menu-text {
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+  .menu-icon {
+    align-items: center;
+    min-width: 40px;
+    body[data-theme="eden"] & {
+      color: var(--color-blue-grey-2);
+    }
+    body[data-theme="charcoal"] &, body[data-theme="cornflower"] & {
+      color: var(--color-blue-grey-8);
+    }
+  }
+  .menuLink1 {
+    padding-left: 35px !important;
+    width: auto;
+    .menu-icon {
+      margin-right: 16px !important;
+      min-width: 4px;
+      width: 4px;
+      height: 4px;
+      border-radius: 100%;
+      background: var(--color-blue-grey-8);
+    }
+    svg {
+      font-size: 1.2rem;
+    }
+  }
+  .MuiListItem-root.menuLink:hover,
+  .MuiListItem-root.Mui-selected:not(.menuLink1):hover {
+    border-radius: var(--radius-button);
+      background-color: var(--color-primary-dark-blue);
+      color: var(--color-contras-text);
+      .menu-icon {
+        color: var(--color-contras-text);
+      }
+  }
+  .MuiListItem-root.Mui-selected:not(.menuLink1){
+    border-radius: var(--radius-button);
+    body[data-theme="eden"] & {
+      background-color: var(--color-blue-grey-10);
+      color: var(--color-primary-main);
+      .menu-icon {
+        color: var(--color-primary-main);
+      }
+    }
+    body[data-theme="charcoal"] & {
+      background-color: var(--color-blue-grey-2);
+      color: var(--color-contras-text);
+      .menu-icon {
+        color: var(--color-contras-text);
+      }
+    }
+    body[data-theme="cornflower"] & {
+      background-color: var(--color-blue-grey-1);
+      color: var(--color-contras-text);
+      .menu-icon {
+        color: var(--color-contras-text);
+      }
+    }
+  }
+  .has-children:hover .MuiListItem-root:not(.menuLink1),
+  .MuiListItem-root.header-selected:hover {
+    border-radius: var(--radius-button);
+    background-color: var(--color-primary-dark-blue);
+    color: var(--color-contras-text);
+    .menu-icon {
+      color: var(--color-contras-text);
+    }
+  }
+  .MuiListItem-root.header-selected, {
+    border-radius: var(--radius-button);
+    body[data-theme="eden"] & {
+      background-color: var(--color-blue-grey-10);
+      color: var(--color-primary-main);
+      .menu-icon {
+        color: var(--color-primary-main);
+      }
+    }
+    body[data-theme="charcoal"] & {
+      background-color: var(--color-blue-grey-2);
+      color: var(--color-contras-text);
+      .menu-icon {
+        color: var(--color-contras-text);
+      }
+    }
+    body[data-theme="cornflower"] & {
+      background-color: var(--color-blue-grey-1);
+      color: var(--color-contras-text);
+      .menu-icon {
+        color: var(--color-contras-text);
+      }
+    }
+  }
+  .MuiListItem-root.menuLink1:hover,
+  .MuiListItem-root.Mui-selected.menuLink1,
+  .MuiListItem-root.Mui-selected.menuLink1:hover {
+    background-color: transparent;
+    border-radius: var(--radius-button);
+    body[data-theme="eden"] & {
+      color: var(--color-primary-main);
+      .menu-icon {
+        background: var(--color-primary-main);
+      }
+    }
+    body[data-theme="charcoal"] &, body[data-theme="cornflower"] & {
+      color: var(--color-contras-text);
+      .menu-icon {
+        background: var(--color-contras-text);
+      }
+    }
+  }
+
+  .side-menu-section {
+    padding-left: var(--menu-item-padding);
+    padding-right: var(--menu-item-padding);
+    .MuiListItem-button{
+      border-radius: var(--radius-button);
+    }
+    .menu-link-item{
+      display: flex;
+      align-items: center;
+      color: inherit;
+      text-decoration: none;
+      width: 100%;
+    }
+  }
+}
+.notification-sign {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  background-color: var(--color-secondary-red);
+  border-radius: 100%;
+  padding: 3px;
+}
+
+.drawer-sidebar {
+  .MuiDrawer-paper {
+    &::-webkit-scrollbar {
+      width: 0.4em;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0);
+      -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0);
+      outline: 1px solid rgba(0, 0, 0, 0);
+    }
+  }
+  .MuiDrawer-paper:hover {
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0);
+      -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-grey-7);
+      outline: 0px solid var(--color-grey-7);
+      border-radius: 10px;
+    }
+  }
+  body[data-theme="charcoal"] & {
+    .color-blue-grey1{
+      color: var(--color-blue-grey-8);
+    }
+    .color-blue-grey3{
+      color: var(--color-blue-grey-8);
+    }
+  }
+}
+.menu-text {
+  .MuiListItemText-primary {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+/* sidebar close css for desktop app */
+  .drawer-sidebar:not(.MuiDrawer-modal) {
+    .drawer-paper-open {
+      .has-children {
+        position: relative;
+        .MuiSvgIcon-root {
+          display: none;
+        }
+        &:nth-last-of-type(-n+2) .MuiCollapse-container{
+          @media all and (max-height:800px) and (min-width:990px)
+          {
+      
+       top: initial;
+       bottom: 45px;
+         }
+        }
+        &:nth-last-of-type(-n+2):hover > li.MuiListItem-root:not(.menuLink1){
+          @media all and (max-height:800px) and (min-width:990px)
+          {
+      
+            border-radius: 8px 0px 8px 8px;
+         }
+        }
+      }
+      .has-children > li > .menu-text,
+      .menuLink .menu-text {
+        display: none;
+      }
+      .has-children > li > .menu-icon,
+      .menuLink .menu-icon {
+        min-height: 29px;
+      }
+      .has-children .MuiCollapse-container {
+        display: none;
+        width: calc(256px - 72px);
+        position: absolute;
+        left: 56px;
+        top: 45px;
+        background-color: var(--color-surface-white);
+        box-shadow: 0 0.5rem 1rem #0000001a;
+        .menuLink1 {
+          padding-left: 16px !important;
+          width: 100%;
+          body[data-theme="charcoal"] &, body[data-theme="cornflower"] & {
+            color: var(--color-blue-grey-4);
+          }
+          .menu-icon {
+            display: none;
+          }
+        }
+      }
+      .has-children:hover > li.MuiListItem-root:not(.menuLink1){
+        border-radius: 8px 8px 0 8px;
+      }
+      .has-children:hover > li.MuiListItem-root:not(.menuLink1),
+      .menuLink:hover {
+        width: calc(256px - 16px);
+        .menu-text {
+          display: block;
+        }
+      }
+
+
+      .has-children:hover .MuiCollapse-container {
+        display: block;
+        visibility: visible;
+        height: auto!important;
+        .MuiListItem-root.Mui-selected.menuLink1,
+        .MuiListItem-root.menuLink1:hover{
+          body[data-theme="charcoal"] &, body[data-theme="cornflower"] & {
+            color: var(--color-primary-main);
+          }
+        }
+      }
+    }
+  }

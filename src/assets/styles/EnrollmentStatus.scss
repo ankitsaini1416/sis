@@ -1,0 +1,105 @@
+@mixin label-assets {
+  text-align: center;
+  border-radius: var(--radius-button);
+  padding: 3px 10px 4px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+$labelPrefix: label-;
+.#{$labelPrefix} {
+  &pending-payment,
+  &declined-payment,
+  &locked,
+  &request-for-transfer {
+    background-color: var(--color-label-warning);
+    color: var(--color-secondary-warning-dark);
+    @include label-assets;
+  }
+
+  &enrolled,
+  &in-evaluation,
+  &hold,
+  &in-print-office,
+  &package-preparation,
+  &printed {
+    background-color: var(--color-label-info);
+    color: var(--color-secondary-info);
+    @include label-assets;
+  }
+  &dropped,
+  &failed,
+  &rejected {
+    background-color: var(--color-secondary-error-bg);
+    color: var(--color-secondary-red);
+    @include label-assets;
+  }
+  &graduated,
+  &transferred,
+  &passed {
+    background-color: var(--color-secondary-success-bg);
+    color: var(--color-secondary-success-dark);
+    @include label-assets;
+  }
+}
+
+@mixin selectStatus {
+  &.Mui-focused,
+  &:hover {
+    & .MuiOutlinedInput-notchedOutline {
+      border-color: inherit;
+    }
+  }
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: inherit;
+  }
+  & .MuiSelect-icon {
+    color: inherit;
+  }
+}
+
+$selectPrefix: select-;
+.#{$selectPrefix} {
+  &pending_payment,
+  &declined_payment,
+  &locked,
+  &request_for_transfer,
+  &pending {
+    & .MuiOutlinedInput-root {
+      background-color: var(--color-label-warning);
+      color: var(--color-secondary-warning-dark);
+      @include selectStatus;
+    }
+  }
+
+  &enrolled,
+  &in_evaluation,
+  &hold,
+  &in_print_office,
+  &package_preparation,
+  &printed,
+  &in_progress, &in_review {
+    & .MuiOutlinedInput-root {
+      background-color: var(--color-label-info);
+      color: var(--color-secondary-info);
+      @include selectStatus;
+    }
+  }
+  &dropped,
+  &failed,
+  &rejected {
+    & .MuiOutlinedInput-root {
+      background-color: var(--color-secondary-error-bg);
+      color: var(--color-secondary-red);
+      @include selectStatus;
+    }
+  }
+  &graduated,
+  &transferred,
+  &passed {
+    & .MuiOutlinedInput-root {
+      background-color: var(--color-secondary-success-bg);
+      color: var(--color-secondary-success-dark);
+      @include selectStatus;
+    }
+  }
+}

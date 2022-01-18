@@ -1,0 +1,40 @@
+variables:
+  DOCKER_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+stages:
+  - build
+  - deploy
+
+build_stage:
+  stage: build
+  tags:
+    - excel-stage
+  script:
+    - echo "Building pre-requisites"
+    - docker build -t $DOCKER_IMAGE:nginx-devel --file Dockerfile .
+    - docker push $DOCKER_IMAGE:nginx-devel
+    - docker build -t $DOCKER_IMAGE:devel --file Dockerfile.node .
+    - docker push $DOCKER_IMAGE:devel
+  only:
+    - stage
+
+deploy_stage:
+  stage: deploy
+  when: on_success
+  tags:
+    - excel-kctl
+  script: |-
+    kubectl -n excel-systems delete --ignore-not-found=true deployment,service $CI_PROJECT_PATH_SLUG
+    kubectl -n excel-systems apply -f ./k8s/deployment_staging.yml
+
+    if ! kubectl -n excel-systems get svc $CI_PROJECT_PATH_SLUG ; then
+      kubectl -n excel-systems expose deployment $CI_PROJECT_PATH_SLUG --type=LoadBalancer --name=$CI_PROJECT_PATH_SLUG --port=80
+    fi
+  only:
+    - stage
+  except:
+    - master
+

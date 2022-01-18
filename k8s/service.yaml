@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: excel-education-sis-frontend-sis-frontend-admin
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:935897657153:certificate/1089a98f-1fe0-4b1c-b315-26928e3408bb
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+
+spec:
+  selector:
+    app: excel-education-sis-frontend-sis-frontend-admin
+  ports:
+    # - name: http
+      # port: 80
+      # targetPort: 80
+    - name: https
+      port: 443
+      targetPort: 80
+  type: LoadBalancer
